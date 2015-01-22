@@ -115,7 +115,7 @@ hr {
   margin-top: 20px;
   margin-bottom: 30px; }
 
-.container {
+.main-container {
   width: 500px;
   margin: 0 auto; }
 
@@ -514,7 +514,7 @@ hr {
     font-size: 27px;
     margin-top: 15px; }
 
-  .container {
+  .main-container {
     width: 280px;
     margin: 0 auto; }
 
@@ -709,3 +709,8 @@ hr {
     margin-top: 90px !important; }
   .game-message .lower {
     margin-top: 30px !important; } }
+
+/* Meteor2048 styles */
+.score-container, .best-container {
+  height: 55px;  
+}

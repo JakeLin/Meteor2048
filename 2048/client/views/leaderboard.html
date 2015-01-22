@@ -10,12 +10,14 @@
       </tr>
     </thead>
     <tbody>
+    {{#each scores}}
       <tr>
         <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
+        <td>{{name}}</td>
+        <td>{{currentScore}}</td>
+        <td>{{bestScore}}</td>
       </tr>
+    {{/each}}
     </tbody>
   </table>
 </template>

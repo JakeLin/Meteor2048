@@ -1,6 +1,13 @@
 Template.leaderboard.helpers({
   scores:function(){
-    return  Scores.find({}, {sort:{currentScore:-1}}); 
+    var scores = Scores.find({}, {sort:{currentScore:-1}}).fetch();
+
+    var index = 1;
+    scores.map(function(o, i) {
+      scores[i].index = index++;
+    });
+
+    return scores;
   }
 });
 

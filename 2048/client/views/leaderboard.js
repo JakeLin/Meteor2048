@@ -1,6 +1,6 @@
 Template.leaderboard.helpers({
   scores:function(){
-    return Scores.find({});
+    return  Scores.find({}, {sort:{currentScore:-1}}); 
   }
 });
 

@@ -23,7 +23,8 @@ HTMLActuator.prototype.actuate = function (grid, metadata) {
 
     self.updateScore(metadata.score);
     self.updateBestScore(metadata.bestScore);
-
+    self.updateScoresCollection(metadata.score, metadata.bestScore);
+    
     if (metadata.terminated) {
       if (metadata.over) {
         self.message(false); // You lose
@@ -122,6 +123,21 @@ HTMLActuator.prototype.updateScore = function (score) {
 
 HTMLActuator.prototype.updateBestScore = function (bestScore) {
   this.bestContainer.textContent = bestScore;
+};
+
+HTMLActuator.prototype.updateScoresCollection = function (score, bestScore) {
+  if (Meteor.user()){
+    var name = Meteor.user().emails[0].address;
+    var scoreObject = Scores.findOne({name: name});
+    if(_.isUndefined(scoreObject)){
+      scoreObject = {name: name, currentScore:score, bestScore:bestScore };
+    }
+    else {
+      scoreObject.currentScore = score;
+      scoreObject.bestScore = bestScore; 
+    }
+    Scores.upsert(scoreObject._id, scoreObject);
+  }
 };
 
 HTMLActuator.prototype.message = function (won) {

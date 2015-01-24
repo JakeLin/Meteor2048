@@ -7,7 +7,7 @@ Template.leaderboard.helpers({
     scores.map(function(o, i) {
       scores[i].index = index++;
       if(scores[i].name === me) {
-        scores[i].me = 'me';
+        scores[i].me = 'active';
       }
     });
 

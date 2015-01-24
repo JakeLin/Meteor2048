@@ -1,0 +1,23 @@
+<template name="leaderboard">
+  <table class="table">
+    <caption>Live Leaderboard</caption>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Score</th>
+        <th>Best Score</th>
+      </tr>
+    </thead>
+    <tbody>
+    {{#each scores}}
+      <tr class="{{me}}">
+        <th scope="row">{{index}}</th>
+        <td>{{name}}</td>
+        <td>{{currentScore}}</td>
+        <td>{{bestScore}}</td>
+      </tr>
+    {{/each}}
+    </tbody>
+  </table>
+</template>

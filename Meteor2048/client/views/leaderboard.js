@@ -2,10 +2,11 @@ Template.leaderboard.helpers({
   scores:function(){
     var scores = Scores.find({}, {sort:{currentScore:-1}}).fetch();
 
-    var me = Meteor.user().emails[0].address;
-    var index = 1;
+    if(Meteor.user()){
+      var me = Meteor.user().emails[0].address;
+    }
     scores.map(function(o, i) {
-      scores[i].index = index++;
+      scores[i].index = i+1;
       if(scores[i].name === me) {
         scores[i].me = 'active';
       }
